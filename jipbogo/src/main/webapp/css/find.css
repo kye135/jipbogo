@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+#find_box {
+	max-width: 384px;
+	margin: 120px auto;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 40px 0;
+}
+
+#find_tab {
+	margin: 0 auto; width : 264px;
+	background-color: #eee;
+	width: 264px;
+}
+
+#find_tab li a {
+	display: inline-block;
+	color: #fff;
+	text-align: center;
+	width: 100%;
+	text-decoration: none;
+	padding: 10px;
+}
+
+#find_box .find_title {
+	text-align: center;
+	font-size: 24px;
+}
+
+#find_box li {
+	height: 35px;
+}
+
+#find_box li a {
+	font-size: 16px;
+}
+
+#find_box input {
+	display: block;
+	width: 264px;
+	height: 35px;
+	margin: 0 auto 5px;
+}
+
+#find_box button {
+	border: none;
+	font-size: 16px;
+	color: white;
+	height: 36px;
+	width: 264px;
+	background-color: #1d7abd;
+}

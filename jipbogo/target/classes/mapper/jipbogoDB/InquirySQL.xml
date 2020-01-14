@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="inquiry"> 
+    <select id="inquiry" resultType="com.jipbogo.dto.InquiryDTO">
+    <![CDATA[
+      SELECT inquiry_no, inquiry_title, inquiry_name, DATE_FORMAT(inquiry_date, '%Y-%m-%d') AS inquiry_date,
+      (SELECT COUNT(*) FROM inquiry) AS totalCount
+      FROM inquiry ORDER BY inquiry_no DESC LIMIT #{page }, 10;
+    ]]>
+  </select>
+  
+  <insert id="inquiryWriteAction"
+    parameterType="com.jipbogo.dto.InquiryDTO">
+    <![CDATA[
+      INSERT INTO inquiry (inquiry_name, inquiry_phone, inquiry_email, inquiry_title, inquiry_content, inquiry_file)
+      VALUES (#{inquiry_name }, #{inquiry_phone }, #{inquiry_email }, #{inquiry_title }, #{inquiry_content }, #{inquiry_file })
+    ]]>
+  </insert>
+
+</mapper>

@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.paging {
+  margin:40px 0 80px;
+  border: none;
+  text-align: center;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.paging button {
+  width: 33px;
+  height: 33px;
+  background-color: white;
+  color: gray;
+  border: 1px solid #ccc;
+}
+
+.paging button:hover, #click {
+  background-color: #1d7abd;
+  color: white;
+}

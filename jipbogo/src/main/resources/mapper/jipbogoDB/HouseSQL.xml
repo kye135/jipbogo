@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="house">
+  <select id="house" resultType="com.jipbogo.dto.HouseDTO">
+  <![CDATA[
+    SELECT *, (SELECT COUNT(*) FROM houses) AS totalCount FROM houses ORDER BY house_no DESC LIMIT #{page }, 8
+  ]]>
+  </select>
+
+  <select id="houseSearch" resultType="com.jipbogo.dto.HouseDTO">
+  <![CDATA[
+    SELECT * FROM houses WHERE house_name LIKE CONCAT('%', #{quiry}, '%') OR
+     house_addr1 LIKE CONCAT('%', #{quiry}, '%') OR house_addr2 LIKE CONCAT('%', #{quiry}, '%') ORDER BY house_no DESC
+  ]]>
+  </select>
+
+  <insert id="houseRegistAction" parameterType="com.jipbogo.dto.HouseDTO">
+    <![CDATA[
+      INSERT INTO houses (house_name, house_addr1, house_addr2, house_addr3, house_parking, house_gen, house_max,
+      house_exp, house_type, house_layout, house_intro, user_id, manager_name, manager_phone, manager_email,
+      house_img1, house_img2, house_img3, house_img4, house_img5, house_img6)
+      VALUES (#{house_name }, #{house_addr1 }, #{house_addr2 }, #{house_addr3 }, #{house_parking },
+       #{house_gen }, #{house_max }, #{house_exp }, #{house_type }, #{house_layout }, #{house_intro },  #{user_id }, 
+       #{manager_name }, #{manager_phone }, #{manager_email },
+       #{house_img1 }, #{house_img2 }, #{house_img3 }, #{house_img4 }, #{house_img5 }, #{house_img6 })
+    ]]>
+  </insert>
+</mapper>

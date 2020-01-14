@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sellerQna">
+    <select id="sellerQna"
+    resultType="com.jipbogo.dto.SellerQnaDTO">
+      <![CDATA[
+    SELECT seller_qna_no, seller_qna_title, seller_qna_id, DATE_FORMAT(seller_qna_date, '%Y-%m-%d') AS seller_qna_date, seller_qna_cnt,
+    (SELECT COUNT(*) FROM seller_qna) AS totalCount
+    FROM seller_qna ORDER BY seller_qna_no DESC LIMIT #{page }, 10;
+  ]]>
+  </select>
+
+  <insert id="sellerQnaWriteAction"
+    parameterType="com.jipbogo.dto.SellerQnaDTO">
+    <![CDATA[
+      INSERT INTO seller_qna (seller_qna_id, seller_qna_pw, seller_qna_title, seller_qna_content)
+      VALUES (#{seller_qna_id }, #{seller_qna_pw }, #{seller_qna_title }, #{seller_qna_content })
+    ]]>
+  </insert>
+
+  
+  <select id="sellerQnaDetail" parameterType="Integer" resultType="com.jipbogo.dto.SellerQnaDTO">
+    SELECT * FROM seller_qna WHERE seller_qna_no = #{reBno }
+  </select>
+  
+    <update id="sellerQnaDetailCountUp" parameterType="int">
+    <![CDATA[
+      UPDATE seller_qna SET seller_qna_cnt = seller_qna_cnt + 1 
+      WHERE seller_qna_no = #{reBno }
+    ]]>
+  </update>
+      <delete id="sellerQnaDetailDelete" parameterType="com.jipbogo.dto.SellerQnaDTO">
+    DELETE FROM seller_qna WHERE seller_qna_no = #{seller_qna_no }
+  </delete>
+
+  
+    <update id="sellerQnaDetailModifyAction" parameterType="com.jipbogo.dto.SellerQnaDTO">
+    UPDATE seller_qna SET seller_qna_title = #{seller_qna_title }, seller_qna_content = #{seller_qna_content }
+    WHERE seller_qna_no = #{seller_qna_no }
+  </update>
+  
+  
+    <select id="sellerQnaComment" parameterType="int" resultType="com.jipbogo.dto.SellerQnaCommentDTO">
+  <![CDATA[
+    SELECT comment_no, seller_qna_no, comment_content, comment_date, seller_id
+    FROM seller_qna_comment
+    WHERE seller_qna_no = #{reBno }
+    ORDER BY comment_date DESC
+  ]]>
+  </select>
+  
+    <insert id="sellerQnaCommentAction" parameterType="com.jipbogo.dto.SellerQnaCommentDTO">
+    <![CDATA[
+      INSERT INTO seller_qna_comment (seller_id, seller_qna_no, comment_content)
+      VALUES (#{seller_id }, #{seller_qna_no }, #{comment_content })
+    ]]>
+  </insert>
+  
+  <delete id="sellerQnaCommentDelete" parameterType="com.jipbogo.dto.SellerQnaCommentDTO">
+    DELETE FROM seller_qna_comment WHERE comment_no = #{comment_no }
+  </delete>
+  
+  
+  
+</mapper>

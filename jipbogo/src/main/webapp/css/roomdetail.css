@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+
+.swiper-container {
+      width: 100%;
+      height: 300px;
+      margin-bottom:50px;
+    }
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+    }
+    .gallery-top {
+      height: 500px;
+      width: 100%;
+      margin-bottom:10px;
+    }
+    .gallery-thumbs {
+      height: 100px;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+    .gallery-thumbs .swiper-slide {
+      height: 100%;
+      opacity: 0.4;
+    }
+    .gallery-thumbs .swiper-slide-thumb-active {
+      opacity: 1;
+    }
+#room_detail {
+	border: 1px solid #ccc;
+	border-top: none;
+	padding: 30px;
+}
+.info_title {
+	width: 100%;
+}
+.info_title .t1 {
+	width: 33.3333%;
+	display: inline-block;
+	text-align: center;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	padding: 6px 0;
+}
+.info_title .t1 a {
+	color: #333;
+	font-size: 20px;
+}
+.info_title>div:nth-child(1), .info_title>div:nth-child(2) {
+	border-right: none;
+}
+#intro table{
+	width:100%;
+	border:1px solid #ccc;
+	margin:30px 0 60px;
+}
+#intro table tr{
+	border-bottom:1px solid #ccc;
+}
+#intro table tr td{
+	border-right:1px solid #ccc;
+	width:16.66%;
+	padding:6px 0;
+}
+#intro table tr td:nth-child(odd){
+	text-align:center;
+	background-color:#eee;
+	width:6.66%;
+}
+#intro table tr td:nth-child(even){
+	padding-left:10px;
+	width:10%;
+}
+#info table{
+	width:100%;
+	border:1px solid #ccc;
+	margin-bottom:20px;
+}
+#info table tr{
+	border-bottom:1px solid #ccc;
+}
+#info table tr:nth-child(1){
+	background-color:#eee;
+}
+#info table tr td{
+	text-align:center;
+	border-right:1px solid #ccc;
+	padding:6px 0;
+}
+#info .info_title{
+	font-weight:bold;
+	border-left:2px solid #1d7abd;
+	padding-left:10px;
+	height:18px;
+	line-height:18px;
+}
+#info .info_txt{
+	margin:10px 0 20px;
+}
+#info .info_txt:nth-last-child(1){
+	margin-bottom:60px;
+}
+#location {
+	width:100%;
+}
+#location #map{
+	width:100%;
+	height:400px;
+	margin-bottom:10px;
+}
+#location .user_info table{
+	width:100%;
+}
+#location .user_info table tr td{
+	width:16.66%;
+	padding:6px 0;
+}
+#location .user_info table tr td:nth-child(odd){
+	text-align:center;
+	color:#fff;
+	background-color:#1d7abd;
+}
+#location .user_info table tr td:nth-child(3){
+	background-color:#ffc200;
+}
+#location .user_info table tr td:nth-child(even){
+	border:1px solid #ccc;
+	font-size:14px;
+	padding-left:10px;
+}

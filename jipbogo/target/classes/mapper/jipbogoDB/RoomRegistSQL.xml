@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="roomRegist">	
+
+	<insert id="roomRegistWriteAction" parameterType="com.jipbogo.dto.RoomRegistDTO">
+		<![CDATA[
+			INSERT INTO houses (house_name, house_addr1, house_addr2, house_addr3, house_parking, house_gen, house_exp, house_max,
+      			house_type, house_layout, house_intro,  manager_name, manager_phone, manager_email, user_id,
+      			house_img1, house_img2, house_img3, house_img4, house_img5, house_img6, house_img7, house_img8, house_img9, house_img10,
+      			room_a_gen, room_a_type, room_a_size, room_a_cost, room_a_depo, room_a_utility, room_a_month, room_a_avail,
+      			room_b_gen, room_b_type, room_b_size, room_b_cost, room_b_depo, room_b_utility, room_b_month, room_b_avail,
+      			room_c_gen, room_c_type, room_c_size, room_c_cost, room_c_depo, room_c_utility, room_c_month, room_c_avail,
+      			room_d_gen, room_d_type, room_d_size, room_d_cost, room_d_depo, room_d_utility, room_d_month, room_d_avail,
+      			room_e_gen, room_e_type, room_e_size, room_e_cost, room_e_depo, room_e_utility, room_e_month, room_e_avail,
+      			room_f_gen, room_f_type, room_f_size, room_f_cost, room_f_depo, room_f_utility, room_f_month, room_f_avail)
+      		VALUES (#{house_name }, #{house_addr1 }, #{house_addr2 }, #{house_addr3 }, #{house_parking }, #{house_gen }, #{house_exp }, #{house_max }, #{house_type }, 
+      			#{house_layout }, #{house_intro }, #{manager_name }, #{manager_phone }, #{manager_email }, #{user_id },
+      			#{house_img1 }, #{house_img2 }, #{house_img3 }, #{house_img4 }, #{house_img5 }, #{house_img6 }, #{house_img7 }, #{house_img8 }, #{house_img9 }, #{house_img10 },
+      			#{room_a_gen }, #{room_a_type }, #{room_a_size }, #{room_a_cost }, #{room_a_depo }, #{room_a_utility }, #{room_a_month }, #{room_a_avail },
+      			#{room_b_gen }, #{room_b_type }, #{room_b_size }, #{room_b_cost }, #{room_b_depo }, #{room_b_utility }, #{room_b_month }, #{room_b_avail },
+      			#{room_c_gen }, #{room_c_type }, #{room_c_size }, #{room_c_cost }, #{room_c_depo }, #{room_c_utility }, #{room_c_month }, #{room_c_avail },
+      			#{room_d_gen }, #{room_d_type }, #{room_d_size }, #{room_d_cost }, #{room_d_depo }, #{room_d_utility }, #{room_d_month }, #{room_d_avail },
+      			#{room_e_gen }, #{room_e_type }, #{room_e_size }, #{room_e_cost }, #{room_e_depo }, #{room_e_utility }, #{room_e_month }, #{room_e_avail },
+      			#{room_f_gen }, #{room_f_type }, #{room_f_size }, #{room_f_cost }, #{room_f_depo }, #{room_f_utility }, #{room_f_month }, #{room_f_avail })
+		]]>
+	</insert>
+	
+	<select id="roomDetail" parameterType="Integer" resultType="com.jipbogo.dto.RoomRegistDTO">
+		SELECT * FROM houses WHERE house_no = #{rehno }
+	</select>
+	
+	<select id="roomRegistList" resultType="com.jipbogo.dto.RoomRegistDTO" parameterType="hashmap">
+		<![CDATA[
+    		SELECT house_no, house_name, house_addr2, DATE_FORMAT(house_date, '%Y-%m-%d') AS house_date,
+    		(SELECT COUNT(*) FROM houses WHERE user_id = #{user_id }) AS totalCount
+    		FROM houses WHERE user_id = #{user_id } ORDER BY house_no DESC LIMIT #{page }, 10;
+		]]>
+  </select>
+	
+	<select id="roomDetailRegist" parameterType="Integer" resultType="com.jipbogo.dto.RoomRegistDTO">
+		SELECT * FROM houses WHERE house_no = #{rerno }
+	</select>
+	
+	
+</mapper>

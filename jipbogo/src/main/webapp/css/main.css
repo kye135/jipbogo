@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+#main_banner{
+	width:100%;
+	height:700px;
+}
+#main_banner img{
+	width:100%;
+	height:700px;
+}
+.con1, .con3{
+	max-width:1000px;
+	margin:0 auto;
+}
+.con2, .con3{
+	padding:120px 0;
+}
+.sub_title{
+	width:100%;
+	text-align:center;
+	font-size:36px;
+}
+.solid_line{
+	display:block;
+	position:relative;
+	margin:0 auto 20px;
+	width:50px;
+	padding:20px 0;
+}
+.solid_line::before{
+	content:'';
+	position:absolute;
+	left:0;
+	top:50%;
+	width:50px;
+	height:0;
+	border-top:3px solid #1d7abd;
+}
+.con_in{
+	max-width:1000px;
+	margin:0 auto;
+}
+.con1{
+	padding:60px 0;
+}
+.con_banner{
+	background-image:url('../img/con1_banner.jpg');
+	width:100%;
+	height:250px;
+	text-align:center;
+	border-radius:30px;
+}
+.con_banner p {
+	color:#fff;
+	font-size:20px;
+	margin:0;
+	padding-bottom:10px;
+}
+.con_banner p:nth-child(1){
+	padding-top:50px;
+}
+.con_banner p:nth-child(2){
+	font-size:36px;
+}
+.con_banner a{
+	display:inline-block;
+	color:#1d7abd;
+	font-size:18px;
+	padding:10px 38px;
+	text-align:center;
+	background-color:#fff;
+	border-radius:40px;
+	vertical-align:middle;
+}
+.con2{
+	width:100%;
+	background-color:#f0f4f9;
+}
+.con2_img{
+	width:100%;
+	display:inline-block;
+}
+.con2_img ul{
+	margin:0;
+	padding:0;
+}
+.con2_img ul li{
+	float:left;
+	list-style:none;
+	width:31.6%;
+	height:140px;
+	border-radius:30px;
+	margin:0 2.6% 30px 0;
+	box-sizing:border-box;
+}
+.con2_img ul li:nth-child(3n){
+	margin-right:0;
+}
+.con2_img ul li:nth-child(n+4){
+	margin-bottom:0;
+}
+.con2_img ul li a h3{
+	font-size:18px;
+	text-align:center;
+	font-weight:normal;
+	color:#fff;
+	margin:0px;
+	padding:11.8% 0;
+	height:100%;
+	border-radius:30px;
+	background-color:rgba(0, 0, 0, .4);
+	box-sizing:border-box;
+}
+.con2_img ul li a h3:hover{
+	background-color:rgba(255, 255, 255, .1);
+}
+.con2_img ul li a h3 strong{
+	font-size:30px;
+	font-weight:bold;
+}
+.con3 .list{
+	display:inline-block;
+	width:100%;
+}
+.con3 .list ul{
+	margin:0;
+	padding:0;
+}
+.con3 .list ul li{
+	float:left;
+	text-align:center;
+	border:1px solid #ccc;
+	list-style:none;
+	width:31.6%;
+	padding:30px 0;
+	margin:0 2.6% 30px 0;
+	box-sizing:border-box;
+}
+.con3 .list ul li:nth-child(3n){
+	margin-right:0;
+}
+.con3 .list ul li:nth-child(n+4){
+	margin-bottom:0;
+}
+.con3 .list ul li img{
+	margin-bottom:10px;
+}
+.con3 .t1{
+	font-size:26px;
+	margin:0;
+}
+.con3 .t2{
+	font-size:18px;
+	color:#666;
+	line-height:1.4em;
+	margin:10px 0 0;
+}

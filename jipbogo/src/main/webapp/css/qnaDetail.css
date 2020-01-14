@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+.detailTitle {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.detailId {
+  font-size: 14px;
+  color: #666;
+}
+
+.detailContent {
+  text-align: left;
+}
+
+.detailModify {
+  margin-top: 100px;
+  text-align: right;
+}
+
+.detailModifyButton {
+  background-color: #bdbdbd";
+}
+
+.board {
+  margin-bottom: 30px;
+}
+
+
+.commentBox {
+  border-bottom: 1px solid #ccc;
+  padding: 20px;
+  background-color: #f4f4f4;
+  margin-top: 40px;
+}
+
+.commnetButtonLocation {
+  text-align: right;
+}
+
+.content {
+  width: 960px;
+  height: 100px;
+  resize: none;
+}
+
+.commentText {
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.commentBoxDiv {
+  
+  margin-bottom: 10px;
+}
+
+.commentButton {
+  width: 80px;
+  height: 38px;
+  color: #fff;
+  border: none;
+  text-align: center;
+  line-height: 38px;
+  background-color: #bdbdbd;
+  margin-top: 20px;
+}
+
+.commentDate {
+  color: #999;
+}
+
+.commentTextBox {
+  border-bottom: 1px solid #ccc; 
+  margin-bottom: 10px;
+}
+
+.commentTextModify {
+  text-align: right;
+  margin-bottom: 12px;
+}
+
+.commentTextId {
+  font-size: 14px;
+  color: #666;
+}
+
+.detailLink {
+  color: #666;
+}
+
+.nullBottom {
+  margin-bottom: 40px;
+}

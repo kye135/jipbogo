@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="userQna">
+
+  <select id="userQna" resultType="com.jipbogo.dto.UserQnaDTO">
+    <![CDATA[
+      SELECT user_qna_no, user_qna_title, user_qna_id, DATE_FORMAT(user_qna_date, '%Y-%m-%d') AS user_qna_date, user_qna_cnt,
+      (SELECT COUNT(*) FROM user_qna) AS totalCount
+      FROM user_qna ORDER BY user_qna_no DESC LIMIT #{page }, 10;
+    ]]>
+  </select>
+
+  <insert id="userQnaWriteAction"
+    parameterType="com.jipbogo.dto.UserQnaDTO">
+    <![CDATA[
+      INSERT INTO user_qna (user_qna_id, user_qna_pw, user_qna_title, user_qna_content)
+      VALUES (#{user_qna_id }, #{user_qna_pw }, #{user_qna_title }, #{user_qna_content })
+    ]]>
+  </insert>
+
+  <select id="userQnaDetail" parameterType="Integer"
+    resultType="com.jipbogo.dto.UserQnaDTO">
+    SELECT * FROM user_qna WHERE user_qna_no = #{reBno }
+  </select>
+
+  <update id="userQnaDetailCountUp" parameterType="int">
+    <![CDATA[
+      UPDATE user_qna SET user_qna_cnt = user_qna_cnt + 1 
+      WHERE user_qna_no = #{reBno }
+    ]]>
+  </update>
+
+  <delete id="userQnaDetailDelete"
+    parameterType="com.jipbogo.dto.UserQnaDTO">
+    DELETE FROM user_qna WHERE user_qna_no = #{user_qna_no
+    }
+  </delete>
+
+  <update id="userQnaDetailModifyAction"
+    parameterType="com.jipbogo.dto.UserQnaDTO">
+    UPDATE user_qna SET user_qna_title = #{user_qna_title
+    }, user_qna_content = #{user_qna_content }
+    WHERE user_qna_no =
+    #{user_qna_no }
+  </update>
+
+  <select id="userQnaComment" parameterType="int"
+    resultType="com.jipbogo.dto.UserQnaCommentDTO">
+    <![CDATA[
+      SELECT comment_no, user_qna_no, comment_content, comment_date, user_id
+      FROM user_qna_comment
+      WHERE user_qna_no = #{reBno }
+      ORDER BY comment_date DESC
+    ]]>
+  </select>
+
+  <insert id="userQnaCommentAction"
+    parameterType="com.jipbogo.dto.UserQnaCommentDTO">
+    <![CDATA[
+      INSERT INTO user_qna_comment (user_id, user_qna_no, comment_content)
+      VALUES (#{user_id }, #{user_qna_no }, #{comment_content })
+    ]]>
+  </insert>
+
+  <delete id="userQnaCommentDelete"
+    parameterType="com.jipbogo.dto.UserQnaCommentDTO">
+    DELETE FROM user_qna_comment WHERE comment_no =
+    #{comment_no }
+  </delete>
+
+  <select id="userQnaCommentModifyData" parameterType="Integer"
+    resultType="com.jipbogo.dto.UserQnaCommentDTO">
+    SELECT * FROM user_qna_comment WHERE comment_no = #{reBno
+    }
+  </select>
+
+  <update id="userQnaCommentModifyAction"
+    parameterType="com.jipbogo.dto.UserQnaDTO">
+    UPDATE user_qna_comment SET comment_content =
+    #{comment_content } WHERE comment_no = #{comment_no }
+  </update>
+
+</mapper>
